@@ -15,15 +15,11 @@
             <a-asset-item id="animated-asset" src="Roteador_GrayBox.gltf"></a-asset-item>
         </a-assets>
 
-        <a-marker type='barcode' value='7'>
-            <a-box position='0 0.5 0' color="yellow"></a-box>
-        </a-marker>
-
         <a-marker id="animated-marker" type='hiro' value='6'>
             <a-entity
-                animation-mixer="clip: Action; loop: once;"  
+                animation-mixer="clip: Action; loop: repeat; repetitions: 2;"  
                 gltf-model="#animated-asset"
-                scale="15 15 15">
+                scale="18 18 18">
             </a-entity>
         </a-marker>
 
