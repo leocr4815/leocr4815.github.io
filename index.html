@@ -26,7 +26,7 @@
 
         <a-marker id="animated-marker" type='hiro' value='6'>
             <a-entity
-                animation-mixer="clip: Action; loop: repeat; repetitions: 4; clampWhenFinished: true;"  
+                animation-mixer="clip: Action; loop: repeat; repetitions: 4;"  
                 gltf-model="#animated-asset"
                 scale="18 18 18">
             </a-entity>
@@ -40,7 +40,7 @@
         
 		var model = document.querySelector('#animated-asset');
             	document.querySelector("button").addEventListener("click", (e)=>{
-	       	 	console.log("TURN")
+	       	 	console.log("TURN.")
 			console.log(this.data)
 			model.setAttribute("animation-mixer",this.data);
        		})
