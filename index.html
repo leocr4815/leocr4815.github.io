@@ -10,12 +10,13 @@
     <script type="text/javascript">
         var scene = document.querySelector('a-scene');  
     	var playOnce = false; 
- 
+ 	const btn = document.querySelector('button');
+	    
 	AFRAME.registerComponent('animation-control', {
  		 schema: {default: ''},
  		 init() {
 			 
-     	    const btn = document.querySelector('button');
+     	    
 	    const bot = document.querySelector('#bot'); 
 	    var jumpBut = document.querySelector('#jump');
 	    var scene = document.querySelector('a-scene');
@@ -55,7 +56,7 @@
 
 		
 		var model = document.querySelector('#animated-asset');
-            	document.querySelector("button").addEventListener("click", (e)=>{
+            	btn.addEventListener("click", (e)=>{
 			
 	       	 	console.log("TURN.")
 			//console.log(this.data)
@@ -69,7 +70,7 @@
     <body style='margin : 0px; overflow: hidden;'>
   
         <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
-            <button animation-control="clip: Action; crossFadeDuration: .3" type="button">Click Me!!</button>
+            <button type="button">Click Me!!</button>
         </div>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
         <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
