@@ -12,7 +12,7 @@
     <body style='margin : 0px; overflow: hidden;'>
   
         <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
-            <button id="btn" type="button">Click Me!</button>
+            <button animation-control="clip: Action; crossFadeDuration: .3" type="button">Click Me!</button>
         </div>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
         <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
@@ -37,7 +37,7 @@
     </body>
 	
 	<script type="text/javascript">
-        /* 
+        
 	AFRAME.registerComponent('animation-control', {
  		 schema: {default: ''},
  		 init() {
@@ -52,7 +52,8 @@
 
 
 	  this.el.addEventListener('click', () => {
-
+		console.log("TURN2")
+		  /*
 	      if (this.el != jumpBut){  
 		bot.setAttribute("animation-mixer",this.data); 
 		 scene.removeEventListener('animation-loop', jumpTrans);
@@ -69,19 +70,19 @@
 
 	     }
 
-
+		*/
 	    }); 
 
 
 
 	  }
 });
-*/
+
 		
 
 		
 		//var model = document.querySelector('#animated-asset');
-            	document.querySelector("btn").addEventListener("click", (e)=>{
+            	document.querySelector("button").addEventListener("click", (e)=>{
 			
 	       	 	console.log("TURN.")
 		//	console.log(this.data)
