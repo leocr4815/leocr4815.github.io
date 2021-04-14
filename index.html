@@ -8,7 +8,9 @@
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     
     <script type="text/javascript">
-        
+        var scene = document.querySelector('a-scene');  
+    	var playOnce = false; 
+ 
 	AFRAME.registerComponent('animation-control', {
  		 schema: {default: ''},
  		 init() {
