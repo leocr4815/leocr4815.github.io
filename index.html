@@ -35,10 +35,13 @@
         <a-entity camera></a-entity>
         </a-scene>
     </body>
+	
 	<script type="text/javascript">
         
-            document.querySelector("button").addEventListener("click", (e)=>{
+		var model = document.querySelector('#animated-asset');
+            	document.querySelector("button").addEventListener("click", (e)=>{
 	        console.log("HIDE OBJECTS")
+		model.setAttribute("animation-mixer",this.data); 
        		})
 	
 
