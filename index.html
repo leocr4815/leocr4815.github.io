@@ -7,7 +7,36 @@
     <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     
-    <script type="text/javascript">
+    
+    
+    <body style='margin : 0px; overflow: hidden;'>
+  
+        <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+            <button type="button">Click Me!!</button>
+        </div>
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+        
+        <a-assets>
+            
+           <!--<a-asset-item id="animated-asset" src="Roteador_GrayBox.gltf"></a-asset-item> -->
+        </a-assets>
+
+        <a-marker id="animated-marker" type='hiro' value='6'>
+            <a-entity
+		id="animated-asset"
+		//animation-control="clip: Action; crossFadeDuration: .3"
+		src="Roteador_GrayBox.gltf"
+                animation-mixer="clip: Action; loop: repeat; repetitions: 4;"  
+		gltf-model="#animated-asset"      
+                scale="18 18 18">
+            </a-entity>
+        </a-marker>
+
+        <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+	<script type="text/javascript">
         var scene = document.querySelector('a-scene');  
     	var playOnce = false; 
  	const btn = document.querySelector('button');
@@ -66,34 +95,5 @@
 	
 
    	 </script>
-    
-    <body style='margin : 0px; overflow: hidden;'>
-  
-        <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
-            <button type="button">Click Me!!</button>
-        </div>
-        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-        <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
-        
-        <a-assets>
-            
-           <!--<a-asset-item id="animated-asset" src="Roteador_GrayBox.gltf"></a-asset-item> -->
-        </a-assets>
-
-        <a-marker id="animated-marker" type='hiro' value='6'>
-            <a-entity
-		id="animated-asset"
-		//animation-control="clip: Action; crossFadeDuration: .3"
-		src="Roteador_GrayBox.gltf"
-                animation-mixer="clip: Action; loop: repeat; repetitions: 4;"  
-		gltf-model="#animated-asset"      
-                scale="18 18 18">
-            </a-entity>
-        </a-marker>
-
-        <a-entity camera></a-entity>
-        </a-scene>
-    </body>
-	
 	
 </html>
