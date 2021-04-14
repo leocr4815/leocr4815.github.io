@@ -40,12 +40,18 @@
 	
 	<script type="text/javascript">
         
-		var model = document.querySelector('#animated-asset');
-            	document.querySelector("button").addEventListener("click", (e)=>{
-	       	 	console.log("TURN.")
-			console.log(this.data)
-			model.setAttribute("animation-mixer",this.data);
-       		})
+		
+		this.el.addEventListener("click", (e)=> {
+  			this.el.setAttribute("animation-mixer", "clip", "Action") 
+			})
+		
+		//var model = document.querySelector('#animated-asset');
+            	//document.querySelector("button").addEventListener("click", (e)=>{
+			
+	       	 //	console.log("TURN.")
+		//	console.log(this.data)
+		//	model.setAttribute("animation-mixer",this.data);
+       		//})
 	
 
    	 </script>
