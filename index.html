@@ -13,7 +13,8 @@
     	var playOnce = false; 
 	
 	AFRAME.registerComponent('play-on-scan', {
- 	 init: function () {
+	schema: {default: ''},
+ 	init: function () {
 		 var prevData = "clip: Spin; loop: once";
 		 var scene = document.querySelector('a-scene');  
 		 var rot = document.querySelector('#animated-asset');
@@ -38,54 +39,13 @@
 		 	});
   		}
 	});   
-	AFRAME.registerComponent('animation-control', {
- 		 schema: {default: ''},
- 		 init() {
-			 
-     	    
-	    //const bot = document.querySelector('#bot'); 
-	    //var jumpBut = document.querySelector('#jump');
-	    var scene = document.querySelector('a-scene');
-		 console.log("TURN3");
-		console.log(this.el);
-
-	
-	  this.el.addEventListener('click', () => {
-		console.log("TURN2")
-		// btn.setAttribute("animation-mixer",this.data); 
-		});
-	/*  
-	      if (this.el != jumpBut){  
-		bot.setAttribute("animation-mixer",this.data); 
-		 scene.removeEventListener('animation-loop', jumpTrans);
-		 prevData = this.data;
-
-	     }
-
-	     if (this.el == jumpBut) {
-
-		bot.setAttribute("animation-mixer",this.data); 
-		var jumpTrans = function () {scene.removeEventListener('animation-loop',jumpTrans); bot.setAttribute("animation-mixer",prevData);console.log("scene ="+scene); console.log("fire")};  
-		console.log("prev data from jump button = "+prevData); 
-	       setTimeout (function(){scene.addEventListener('animation-loop',jumpTrans);},500);     
-
-	     }
-
-		
-	    
-
-*/
-
-	  }
-	  
-});
-
 	    
     </script>
+	
     <body style='margin : 0px; overflow: hidden;'>
   
         <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
-            <button animation-control="clip: Action; crossFadeDuration: .3" type="button">Click Me!!!</button>
+            <button type="button">Click Me!!!</button>
         </div>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
         <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
@@ -95,7 +55,7 @@
            <!--<a-asset-item id="animated-asset" src="Roteador_GrayBox.gltf"></a-asset-item> -->
         </a-assets>
 
-        <a-marker id="animated-marker" type='hiro' value='6' emitevents='true' play-on-scan>
+        <a-marker id="animated-marker" type='hiro' value='6' emitevents='true' play-on-scan="clip: Spin; loop: once";>
             <a-entity
 		id="animated-asset"
 		
