@@ -20,15 +20,20 @@
     		 var el = this.el;
 		 console.log(this.el);
 		 
+		 var btn = document.querySelector('button');  
+		 
     		 el.addEventListener('markerFound', () => {
 			console.log(this.data);
       			rot.setAttribute('animation-mixer', this.data);
 			prevData = this.data; 
     			});
-		  el.addEventListener('markerLost', function () {
+		  el.addEventListener('markerLost', () => {
 			
       			//scene.removeEventListener('animation-loop', jumpTrans);
     			});
+		 btn.addEventListener('onclick', () => {
+			console.log("TURN5"); 
+		 	});
   		}
 	});   
 	AFRAME.registerComponent('animation-control', {
