@@ -13,7 +13,6 @@
     	var playOnce = false; 
 	
 	AFRAME.registerComponent('play-on-scan', {
-	schema: {default: ''},
  	 init: function () {
 		 var prevData = "clip: Action; crossFadeDuration: .3";
 		 var scene = document.querySelector('a-scene');  
@@ -21,7 +20,7 @@
     		 var el = this.el;
 		 console.log(this.el);
 		 
-    		 el.addEventListener('markerFound', function () {
+    		 el.addEventListener('markerFound', () => {
 			console.log(this.data);
       			rot.setAttribute('animation-mixer', this.data);
 			prevData = this.data; 
