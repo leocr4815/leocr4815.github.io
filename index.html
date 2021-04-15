@@ -14,16 +14,19 @@
 	
 	AFRAME.registerComponent('play-on-scan', {
  	 init: function () {
-		    var scene = document.querySelector('a-scene');  
+		 var prevData = "clip: Action; crossFadeDuration: .3";
+		 var scene = document.querySelector('a-scene');  
 		 var rot = document.querySelector('#animated-asset');
-    		var el = this.el;
+    		 var el = this.el;
 		 console.log(this.el);
+		 
     		 el.addEventListener('markerFound', function () {
-      			rot.setAttribute('animation-mixer', {clip: '*', loop: 'once'});
+      			rot.setAttribute('animation-mixer', this.data);
+			prevData = this.data; 
     			});
 		  el.addEventListener('markerLost', function () {
 			
-      			scene.removeEventListener('animation-loop', jumpTrans);
+      			//scene.removeEventListener('animation-loop', jumpTrans);
     			});
   		}
 	});   
