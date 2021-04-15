@@ -41,12 +41,31 @@
                     }
                 }
             ],
-            "name" : "Action",
+            "name" : "Idle",
             "samplers" : [
                 {
                     "input" : 12,
                     "interpolation" : "LINEAR",
                     "output" : 13
+                }
+            ]
+        },
+        {
+            "channels" : [
+                {
+                    "sampler" : 0,
+                    "target" : {
+                        "node" : 2,
+                        "path" : "rotation"
+                    }
+                }
+            ],
+            "name" : "Spin",
+            "samplers" : [
+                {
+                    "input" : 12,
+                    "interpolation" : "LINEAR",
+                    "output" : 14
                 }
             ]
         }
@@ -254,6 +273,12 @@
             "componentType" : 5126,
             "count" : 60,
             "type" : "VEC4"
+        },
+        {
+            "bufferView" : 14,
+            "componentType" : 5126,
+            "count" : 60,
+            "type" : "VEC4"
         }
     ],
     "bufferViews" : [
@@ -326,11 +351,16 @@
             "buffer" : 0,
             "byteLength" : 960,
             "byteOffset" : 22408
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 960,
+            "byteOffset" : 23368
         }
     ],
     "buffers" : [
         {
-            "byteLength" : 23368,
+            "byteLength" : 24328,
             "uri" : "Roteador_GrayBox.bin"
         }
     ]
