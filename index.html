@@ -11,9 +11,10 @@
 	    
         var scene = document.querySelector('a-scene');  
     	var playOnce = false; 
-	var rot = document.querySelector('#animated-asset');
+	
 	AFRAME.registerComponent('play-on-scan', {
  	 init: function () {
+		 var rot = document.querySelector('#animated-asset');
     		var el = this.el;
 		 console.log(this.el);
     		 el.addEventListener('markerFound', function () {
