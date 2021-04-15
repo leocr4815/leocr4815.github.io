@@ -18,8 +18,11 @@
     		var el = this.el;
 		 console.log(this.el);
     		 el.addEventListener('markerFound', function () {
-			console.log("TURN4");
       			rot.setAttribute('animation-mixer', {clip: '*', loop: 'once'});
+    			});
+		  el.addEventListener('markerLost', function () {
+			console.log("TURN4");
+      			rot.setAttribute('animation-mixer', "");
     			});
   		}
 	});   
