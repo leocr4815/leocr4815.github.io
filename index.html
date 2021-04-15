@@ -14,7 +14,7 @@
 	
 	AFRAME.registerComponent('play-on-scan', {
  	 init: function () {
-		 var prevData = "clip: Spin; loop: once; crossFadeDuration: .3";
+		 var prevData = "clip: Spin; loop: once;
 		 var scene = document.querySelector('a-scene');  
 		 var rot = document.querySelector('#animated-asset');
     		 var el = this.el;
@@ -34,7 +34,7 @@
 		 btn.addEventListener('click', () => {
 			console.log("TURN5");
 			rot.setAttribute('animation-mixer', this.data);
-			prevData = this.data;
+			//prevData = this.data;
 		 	});
   		}
 	});   
@@ -111,18 +111,18 @@
     </body>
 	
 	
-	<script type="text/javascript">
+	//<script type="text/javascript">
 		
- 	const btn = document.querySelector('button');
-	var model = document.querySelector('#animated-asset');
-        btn.addEventListener("click", (e)=>{
+ 	//const btn = document.querySelector('button');
+	//var model = document.querySelector('#animated-asset');
+       // btn.addEventListener("click", (e)=>{
 			
-		console.log("TURN.")
+		//console.log("TURN.")
 		//console.log(this.data)
 		//model.setAttribute("animation-mixer",);
 		//model.setAttribute('animation-mixer', 'clip: Blz');
        	})
 	
-   	</script>
+   	//</script>
 	
 </html>
