@@ -16,6 +16,8 @@
  	 init: function () {
     		var el = this.el;
     		el.addEventListener('markerFound', function () {
+			console.log("TURN4");
+			console.log(this.el);
       			el.setAttribute('animation-mixer', {clip: '*', loop: 'once'});
     			});
   		}
@@ -67,7 +69,7 @@
     <body style='margin : 0px; overflow: hidden;'>
   
         <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
-            <button animation-control="clip: Action; crossFadeDuration: .3" type="button">Click Me!!!</button>
+            <button animation-control="clip: Action; crossFadeDuration: .3" type="button">Click Me!!</button>
         </div>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
         <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
