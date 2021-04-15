@@ -21,8 +21,8 @@
       			rot.setAttribute('animation-mixer', {clip: '*', loop: 'once'});
     			});
 		  el.addEventListener('markerLost', function () {
-			console.log("TURN4");
-      			rot.setAttribute('animation-mixer', "");
+			
+      			scene.removeEventListener('animation-loop', jumpTrans);
     			});
   		}
 	});   
