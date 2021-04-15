@@ -14,7 +14,7 @@
 	
 	AFRAME.registerComponent('play-on-scan', {
  	 init: function () {
-		 var prevData = "clip: Action; crossFadeDuration: .3";
+		 var prevData = "clip: Spin; crossFadeDuration: .3";
 		 var scene = document.querySelector('a-scene');  
 		 var rot = document.querySelector('#animated-asset');
     		 var el = this.el;
@@ -28,7 +28,7 @@
 			//prevData = this.data; 
     			});
 		  el.addEventListener('markerLost', () => {
-			
+			//rot.setAttribute('animation-mixer', this.data);
       			//scene.removeEventListener('animation-loop', jumpTrans);
     			});
 		 btn.addEventListener('click', () => {
