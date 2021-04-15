@@ -24,15 +24,17 @@
 		 
     		 el.addEventListener('markerFound', () => {
 			console.log(this.data);
-      			rot.setAttribute('animation-mixer', this.data);
-			prevData = this.data; 
+      			//rot.setAttribute('animation-mixer', this.data);
+			//prevData = this.data; 
     			});
 		  el.addEventListener('markerLost', () => {
 			
       			//scene.removeEventListener('animation-loop', jumpTrans);
     			});
 		 btn.addEventListener('click', () => {
-			console.log("TURN5"); 
+			console.log("TURN5");
+			rot.setAttribute('animation-mixer', this.data);
+			prevData = this.data;
 		 	});
   		}
 	});   
@@ -118,7 +120,7 @@
 		console.log("TURN.")
 		//console.log(this.data)
 		//model.setAttribute("animation-mixer",);
-		model.setAttribute('animation-mixer', 'clip: Blz');
+		//model.setAttribute('animation-mixer', 'clip: Blz');
        	})
 	
    	</script>
