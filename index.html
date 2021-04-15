@@ -21,6 +21,7 @@
 		 console.log(this.el);
 		 
     		 el.addEventListener('markerFound', function () {
+			 console.log(this.data);
       			rot.setAttribute('animation-mixer', this.data);
 			prevData = this.data; 
     			});
