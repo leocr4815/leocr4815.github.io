@@ -42,7 +42,7 @@
 			console.log("TURN5");
 			//model.setAttribute('animation-mixer', this.data);
 			setTimeout (model2.setAttribute('visible', "true"), 1000);
-			model2.setAttribute('animation-mixer', "clip: Cable_In; loop: once");
+			model2.setAttribute('animation-mixer', "clip: Cable_In; loop: once; clampWhenFinished: true");
 			//prevData = this.data;
 		 	});
   		}
@@ -67,7 +67,7 @@
            <!--<a-asset-item id="animated-asset" src="Roteador_GrayBox.gltf"></a-asset-item> -->
         </a-assets>
 
-        <a-marker id="animated-marker" type='hiro' value='6' emitevents='true' play-on-scan="clip: Spin; loop: once; clampWhenFinished: true";>
+        <a-marker id="animated-marker" type='hiro' value='6' emitevents='true' play-on-scan="clip: Spin; loop: once;>
             <a-entity
 		id="animated-asset"
 		src="Roteador_GrayBox.gltf"
