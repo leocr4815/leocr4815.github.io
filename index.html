@@ -15,13 +15,13 @@
 	AFRAME.registerComponent('play-on-scan', {
 	schema: {default: ''},
  	init: function () {
-		 var prevData = "clip: Spin; loop: once";
+		 var prevData = "clip: Idle; loop: once";
 		 var scene = document.querySelector('a-scene');  
 		 var rot = document.querySelector('#animated-asset');
     		 var el = this.el;
 		 console.log(this.el);
 		 
-		 var btn = document.querySelector('button');  
+		 var btn = document.querySelectorAll('button');  
 		 
     		 el.addEventListener('markerFound', () => {
 			console.log(this.data);
@@ -29,10 +29,15 @@
 			//prevData = this.data; 
     			});
 		  el.addEventListener('markerLost', () => {
-			rot.setAttribute('animation-mixer', "clip: Idle; loop: once");
+			rot.setAttribute('animation-mixer', prevData);
       			//scene.removeEventListener('animation-loop', jumpTrans);
     			});
-		 btn.addEventListener('click', () => {
+		 btn.item(0).addEventListener('click', () => {
+			console.log("TURN5");
+			rot.setAttribute('animation-mixer', this.data);
+			//prevData = this.data;
+		 	});
+		btn.item(1).addEventListener('click', () => {
 			console.log("TURN5");
 			rot.setAttribute('animation-mixer', this.data);
 			//prevData = this.data;
