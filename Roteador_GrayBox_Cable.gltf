@@ -6,7 +6,10 @@
     "scene" : 0,
     "scenes" : [
         {
-            "name" : "Scene"
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
         }
     ],
     "nodes" : [
