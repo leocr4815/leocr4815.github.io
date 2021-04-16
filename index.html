@@ -39,11 +39,11 @@
 			//prevData = this.data;
 		 	});
 		btn.item(1).addEventListener('click', () => {
-			console.log(model2);
+			//console.log(model2);
 			//model.setAttribute('animation-mixer', this.data);
 			setTimeout (model2.setAttribute('visible', true), 2000);
-			model2.setAttribute('position', "0 1 0")
-			console.log(model2);
+			//model2.setAttribute('position', "0 1 0")
+			//console.log(model2);
 			model2.setAttribute('animation-mixer', "clip: Cable_In; loop: once; clampWhenFinished: true");
 			//prevData = this.data;
 		 	});
@@ -74,17 +74,16 @@
 		id="animated-asset"
 		src="Roteador_GrayBox.gltf"
 		gltf-model="#animated-asset"      
-                scale="18 18 18">
-				<a-entity
-			id="animated-asset-2"
-			src="Roteador_GrayBox_Cable.gltf"
-			gltf-model="#animated-asset-2"
-			visible="false"
-			position="0 0 0"
-			scale="18 18 18">
-           	 </a-entity>
+                scale="18 18 18">			
 	     </a-entity>
-		
+	     <a-entity
+		id="animated-asset-2"
+		src="Roteador_GrayBox_Cable.gltf"
+		gltf-model="#animated-asset-2"
+		visible="false"
+		position="0 0 0"
+		scale="18 18 18">
+	     </a-entity>	
         </a-marker>
 
         <a-entity camera></a-entity>
