@@ -1,0 +1,93 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    
+    <script type="text/javascript">
+	    
+     
+    	var playOnce = false; 
+	
+	AFRAME.registerComponent('play-on-scan', {
+	schema: {default: ''},
+ 	init: function () {
+		 var prevData = "clip: Idle; loop: once";
+		 var scene = document.querySelector('a-scene');  
+		 var model = document.querySelector('#animated-asset');
+    		 var el = this.el;
+		 console.log(this.el);
+		 
+		 var btn = document.querySelectorAll('button');  
+		 var model2 = document.querySelector('#animated-asset-2');
+		 
+    		 el.addEventListener('markerFound', () => {
+			console.log(this.data);
+      			//rot.setAttribute('animation-mixer', this.data);
+			//prevData = this.data; 
+    			});
+		  el.addEventListener('markerLost', () => {
+			model.setAttribute('animation-mixer', prevData);
+      			//scene.removeEventListener('animation-loop', jumpTrans);
+    			});
+		 btn.item(0).addEventListener('click', () => {
+			console.log("TURN5");
+			model.setAttribute('animation-mixer', this.data);
+			//prevData = this.data;
+		 	});
+		btn.item(1).addEventListener('click', () => {
+			//console.log(model2);
+			//model.setAttribute('animation-mixer', this.data);
+			setTimeout (model2.setAttribute('visible', true), 2000);
+			//model2.setAttribute('position', "0 1 0")
+			//console.log(model2);
+			model2.setAttribute('animation-mixer', "clip: Cable_In; loop: once; clampWhenFinished: true");
+			//prevData = this.data;
+		 	});
+  		}
+	});   
+	    
+    </script>
+	
+    <body style='margin : 0px; overflow: hidden;'>
+  
+        <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+            <button type="button">Click Me!!!</button>
+        </div>
+	    
+	<div style='position: fixed; top: 50px; width:100%; text-align: center; z-index: 1;'>
+            <button type="button">Click Me Too!!!</button>
+        </div>
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+        
+        <a-assets>
+            
+           <!--<a-asset-item id="animated-asset" src="Roteador_GrayBox.gltf"></a-asset-item> -->
+        </a-assets>
+
+        <a-marker id="animated-marker" type='hiro' value='6' emitevents='true' play-on-scan="clip: Spin; loop: once; clampWhenFinished: true"">
+            <a-entity
+		id="animated-asset"
+		src="Roteador_GrayBox.gltf"
+		gltf-model="#animated-asset"      
+                scale="18 18 18">			
+	     </a-entity>
+	     <a-entity
+		id="animated-asset-2"
+		src="Roteador_GrayBox_Cable.gltf"
+		gltf-model="#animated-asset-2"
+		visible="false"
+		position="0 0 0"
+		scale="18 18 18">
+	     </a-entity>	
+        </a-marker>
+
+        <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+	
+</html>
