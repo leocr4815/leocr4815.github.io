@@ -6,7 +6,7 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    
+    <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="style.css"/>
     <script type="text/javascript">
 	    
      
@@ -53,6 +53,24 @@
     </script>
 	
     <body style='margin : 0px; overflow: hidden;'>
+	    
+	<div id="Web_1920__1">
+		<svg class="Background">
+			<rect id="Background" rx="0" ry="0" x="0" y="0" width="1920" height="153">
+			</rect>
+		</svg>
+		<svg class="Backward" viewBox="0 0 93 80">
+			<path id="Backward" d="M 46.49999618530273 0 L 93 80 L 0 80 Z">
+			</path>
+		</svg>
+		<svg class="Forward" viewBox="0 0 93 80">
+			<path id="Forward" d="M 46.49999618530273 0 L 93 80 L 0 80 Z">
+			</path>
+		</svg>
+		<div id="Text">
+			<span>Texto 1</span>
+		</div>
+	</div>
   
         <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
             <button type="button">Click Me!!!</button>
