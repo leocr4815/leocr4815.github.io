@@ -41,6 +41,7 @@
 	height: 171px;
 	left: 0px;
 	top: 927px;
+	z-index: 1;
 }
 #Backward {
 	fill: rgba(255,255,255,1);
@@ -54,6 +55,7 @@
 	transform-origin: center;
 	left: 0px;
 	top: 0px;
+	z-index: 1;
 }
 #Forward {
 	fill: rgba(255,255,255,1);
@@ -73,6 +75,8 @@
 	transform-origin: center;
 	left: 0px;
 	top: 0px;
+	z-index: 1;
+	
 }
 #Text {
 	left: 863px;
@@ -87,4 +91,5 @@
 	font-weight: normal;
 	font-size: 60px;
 	color: rgba(255,255,255,1);
+	z-index: 1;
 }
