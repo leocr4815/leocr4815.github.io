@@ -24,6 +24,8 @@
 		 document.getElementById("Text").innerHTML = "Step0";
 		 var initialState = 0;
 		 var btn = document.querySelectorAll('button');  
+		 var forward = document.querySelector('f_btn');
+		 var backward = document.querySelector('Backward');
 		 var model2 = document.querySelector('#animated-asset-2');
 		 
     		 el.addEventListener('markerFound', () => {
@@ -52,6 +54,9 @@
 		forward.addEventListener('click', () =>{
 			updateState();
 			});
+		backward.addEventListener('click', () =>{
+			updateState();
+			});
 		
 		function updateState(){
 			state++;
@@ -76,6 +81,7 @@
 		</svg>
 		<svg class="Forward" viewBox="0 0 93 80">
 			<path id="Forward" d="M 46.49999618530273 0 L 93 80 L 0 80 Z">
+				<rect class="f_btn" x="0" y="0" width="10" height="10"/>
 			</path>
 		</svg>
 		<div id="Text">
