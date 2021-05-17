@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="style.css"/>
     <script type="text/javascript">
 	    
-     
+     	
     	var playOnce = false; 
 	
 	AFRAME.registerComponent('play-on-scan', {
@@ -20,7 +20,9 @@
 		 var model = document.querySelector('#animated-asset');
     		 var el = this.el;
 		 console.log(this.el);
-		 
+		
+		 document.getElementById(id).innerHTML = "Step0";
+		 var initialState = 0;
 		 var btn = document.querySelectorAll('button');  
 		 var model2 = document.querySelector('#animated-asset-2');
 		 
@@ -47,6 +49,15 @@
 			model2.setAttribute('animation-mixer', "clip: Cable_In; loop: once; clampWhenFinished: true");
 			//prevData = this.data;
 		 	});
+		forward.addEventListener('click', () =>{
+			updateState();
+			});
+		
+		function updateState(){
+			state++;
+			document.getElementById(Text).innerHTML = "Step"+ state;
+		}
+		
   		}
 	});   
 	    
