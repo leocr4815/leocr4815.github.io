@@ -31,7 +31,7 @@
     		 var el = this.el;
 		 console.log(this.el);
 		
-		 document.getElementById("Text").innerHTML = "Step0";
+		 document.getElementById("Text").innerHTML = steps[0];
 		 var state = 0;
 		 var btn = document.querySelectorAll('button');  
 		 var forward = document.getElementById("Forward");
@@ -75,7 +75,15 @@
 		function updateState(flag){
 			if (flag){
 				state++;
-				document.getElementById("Text").innerHTML = steps[state];		
+				document.getElementById("Text").innerHTML = steps[state];
+				if(state ==1){
+					setTimeout (cable2.setAttribute('visible', true), 2000);
+				   	cable2.setAttribute('animation-mixer', "clip: Cable_In; loop: once; clampWhenFinished: true");
+				   }
+				if(state ==2){
+					setTimeout (cable3.setAttribute('visible', true), 2000);
+				   	cable3.setAttribute('animation-mixer', "clip: Cable_In; loop: once; clampWhenFinished: true");
+				   }
 			}
 			else{
 				state--;
