@@ -53,16 +53,23 @@
 		 	});
 		forward.addEventListener('click', () =>{
 			console.log("forward");
-			updateState();
+			updateState(true);
 			});
 		backward.addEventListener('click', () =>{
 			console.log("back");
-			updateState();
+			updateState(false);
 			});
 		
-		function updateState(){
-			state++;
-			document.getElementById("Text").innerHTML = "Step"+ state;
+		function updateState(flag){
+			if (flag){
+				state++;
+				document.getElementById("Text").innerHTML = "Step"+ state;		
+			}
+			else{
+				state--;
+				document.getElementById("Text").innerHTML = "Step"+ state;
+			}
+			
 		}
 		
   		}
