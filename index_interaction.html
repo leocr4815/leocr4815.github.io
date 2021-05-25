@@ -25,6 +25,12 @@
 		"Step 3 - Insert Cable 3 as indicated"
 		
 		]
+		
+		 // Get the modal
+		 var modal = document.getElementById("myModal");
+		// Get the <span> element that closes the modal
+		 var span = document.getElementsByClassName("close")[0];
+		
 		 var prevData = "clip: Idle; loop: once";
 		 var scene = document.querySelector('a-scene');  
 		 var model = document.querySelector('#animated-asset');
@@ -81,15 +87,29 @@
 				   	cable2.setAttribute('animation-mixer', "clip: Cable_In.001; loop: once; clampWhenFinished: true");
 				   }
 				if(state ==2){
-					setTimeout (cable3.setAttribute('visible', true), 2000);
-				   	cable3.setAttribute('animation-mixer', "clip: Cable_In.002; loop: once; clampWhenFinished: true");
+					modal.style.display = "block";
+					//setTimeout (cable3.setAttribute('visible', true), 2000);
+				   	//cable3.setAttribute('animation-mixer', "clip: Cable_In.002; loop: once; clampWhenFinished: true");
 				   }
 			}
 			else{
+				modal.style.display = "none";
 				state--;
 				document.getElementById("Text").innerHTML = steps[state];
 			}
 			
+		}
+	
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		  modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+		    modal.style.display = "none";
+		  }
 		}
 		
   		}
