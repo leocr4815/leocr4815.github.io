@@ -83,13 +83,14 @@
 				state++;
 				document.getElementById("Text").innerHTML = steps[state];
 				if(state ==1){
-					setTimeout (cable2.setAttribute('visible', true), 2000);
-				   	cable2.setAttribute('animation-mixer', "clip: Cable_In.001; loop: once; clampWhenFinished: true");
+					modal.style.display = "block";
+					//setTimeout (cable2.setAttribute('visible', true), 2000);
+				   	//cable2.setAttribute('animation-mixer', "clip: Cable_In.001; loop: once; clampWhenFinished: true");
 				   }
 				if(state ==2){
-					modal.style.display = "block";
-					//setTimeout (cable3.setAttribute('visible', true), 2000);
-				   	//cable3.setAttribute('animation-mixer', "clip: Cable_In.002; loop: once; clampWhenFinished: true");
+					
+					setTimeout (cable3.setAttribute('visible', true), 2000);
+				   	cable3.setAttribute('animation-mixer', "clip: Cable_In.002; loop: once; clampWhenFinished: true");
 				   }
 			}
 			else{
