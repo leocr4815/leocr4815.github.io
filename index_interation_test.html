@@ -1,0 +1,184 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="style.css"/>
+    <script type="text/javascript">
+	    
+     
+	
+    	var playOnce = false; 
+	
+	AFRAME.registerComponent('play-on-scan', {
+	schema: {default: ''},
+ 	init: function () {
+		const steps = [
+		
+		"Step 1 - Insert Cable 1 as indicated"
+		,
+		"Step 2 - Insert Cable 2 as indicated"
+		,
+		"Step 3 - Insert Cable 3 as indicated"
+		
+		]
+		 var prevData = "clip: Idle; loop: once";
+		 var scene = document.querySelector('a-scene');  
+		 var model = document.querySelector('#animated-asset');
+    		 var el = this.el;
+		 console.log(this.el);
+		
+		 document.getElementById("Text").innerHTML = steps[0];
+		 var state = 0;
+		 var btn = document.querySelectorAll('button');  
+		 var forward = document.getElementById("Forward");
+		 var backward = document.getElementById("Backward");
+		 var cable = document.querySelector('#animated-asset-2');
+		 var cable2 = document.querySelector('#animated-asset-3');
+		 var cable3 = document.querySelector('#animated-asset-4');
+		
+    		 el.addEventListener('markerFound', () => {
+			console.log(this.data);
+      			//rot.setAttribute('animation-mixer', this.data);
+			//prevData = this.data; 
+    			});
+		  el.addEventListener('markerLost', () => {
+			model.setAttribute('animation-mixer', prevData);
+      			//scene.removeEventListener('animation-loop', jumpTrans);
+    			});
+		 btn.item(0).addEventListener('click', () => {
+			console.log("TURN5");
+			model.setAttribute('animation-mixer', this.data);
+			//prevData = this.data;
+		 	});
+		btn.item(1).addEventListener('click', () => {
+			//console.log(model2);
+			//model.setAttribute('animation-mixer', this.data);
+			setTimeout (cable.setAttribute('visible', true), 2000);
+			//model2.setAttribute('position', "0 1 0")
+			//console.log(model2);
+			cable.setAttribute('animation-mixer', "clip: Cable_In; loop: once; clampWhenFinished: true");
+			//prevData = this.data;
+		 	});
+		forward.addEventListener('click', () =>{
+			console.log("forward");
+			updateState(true);
+			});
+		backward.addEventListener('click', () =>{
+			console.log("back");
+			updateState(false);
+			});
+		
+		function updateState(flag){
+			if (flag){
+				state++;
+				document.getElementById("Text").innerHTML = steps[state];
+				if(state ==1){
+					setTimeout (cable2.setAttribute('visible', true), 2000);
+				   	cable2.setAttribute('animation-mixer', "clip: Cable_In.001; loop: once; clampWhenFinished: true");
+				   }
+				if(state ==2){
+					setTimeout (cable3.setAttribute('visible', true), 2000);
+				   	cable3.setAttribute('animation-mixer', "clip: Cable_In.002; loop: once; clampWhenFinished: true");
+				   }
+			}
+			else{
+				state--;
+				document.getElementById("Text").innerHTML = steps[state];
+			}
+			
+		}
+		
+  		}
+	});   
+	    
+    </script>
+	
+    <body style='margin : 0px; overflow: hidden;'>
+	    
+	<div id="Web_1920__1">
+		<svg class="Background">
+			<rect id="Background" rx="0" ry="0" x="0" y="0" width="1920" height="153">
+			</rect>
+		</svg>
+		<svg class="Backward" viewBox="0 0 93 80">
+			<path id="Backward" d="M 46.49999618530273 0 L 93 80 L 0 80 Z">
+			</path>
+		</svg>
+		<svg class="Forward" viewBox="0 0 93 80">
+			<path id="Forward" d="M 46.49999618530273 0 L 93 80 L 0 80 Z">
+			</path>
+		</svg>
+		<div id="Text">
+			<span>Texto 1</span>
+		</div>
+	    </div>
+  
+        <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+            <button type="button">Click Me!!!</button>
+        </div>
+	    
+	<div style='position: fixed; top: 50px; width:100%; text-align: center; z-index: 1;'>
+            <button type="button">Click Me Too!!!</button>
+        </div>
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+        
+        <a-assets>
+            
+           <!--<a-asset-item id="animated-asset" src="Roteador_GrayBox.gltf"></a-asset-item> -->
+        </a-assets>
+
+        <a-marker id="animated-marker" preset='custom' type='pattern' value='6' url='pattern-download.patt' emitevents='true' play-on-scan="clip: Spin; loop: once; clampWhenFinished: true"">
+	<!--<a-marker id="animated-marker" type='hiro' value='6' emitevents='true' play-on-scan="clip: Spin; loop: once; clampWhenFinished: true""> -->																      
+            <a-entity
+		id="animated-asset"
+		src="Roteador_GrayBox.gltf"
+		gltf-model="#animated-asset"      
+                scale="18 18 18">			
+	     </a-entity>
+	     <a-entity
+		id="animated-asset-2"
+		src="Roteador_GrayBox_Cable.gltf"
+		gltf-model="#animated-asset-2"
+		visible="false"
+		position="0 0 0"
+		scale="18 18 18">
+	     </a-entity>
+		<a-entity
+		id="animated-asset-3"
+		src="Roteador_GrayBox_Cable2.gltf"
+		gltf-model="#animated-asset-3"
+		visible="false"
+		position="0 0 0"
+		scale="18 18 18">
+	     </a-entity>
+		<a-entity
+		id="animated-asset-4"
+		src="Roteador_GrayBox_Cable3.gltf"
+		gltf-model="#animated-asset-4"
+		visible="false"
+		position="0 0 0"
+		scale="18 18 18">
+	     </a-entity>
+        </a-marker>
+	<a-marker id="animated-marker-2" preset='custom' type='pattern' value='6' url='pattern-Accenture-Logo-768x768.patt' emitevents='true' play-on-scan="clip: Spin; loop: once; clampWhenFinished: true"">
+		
+		<a-entity
+		id="animated-asset-5"
+		src="Roteador_GrayBox_Cable3.gltf"
+		gltf-model="#animated-asset-5"
+		visible="true"
+		position="0 0 0"
+		scale="18 18 18">
+	     </a-entity>
+	
+	</a-marker>
+        <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+	
+</html>
