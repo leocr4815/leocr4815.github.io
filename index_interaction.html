@@ -39,12 +39,12 @@
 		
 		 document.getElementById("Text").innerHTML = steps[0];
 		 var state = 0;
-		 var btn = document.querySelectorAll('button');  
+		 //var btn = document.querySelectorAll('button');  
 		 var forward = document.getElementById("Forward");
 		 var backward = document.getElementById("Backward");
-		 var cable = document.querySelector('#animated-asset-2');
-		 var cable2 = document.querySelector('#animated-asset-3');
-		 var cable3 = document.querySelector('#animated-asset-4');
+		 var cable = document.querySelector('#animated-asset-5');
+		 var indicator = document.querySelector('#animated-asset-6');
+		 //var cable3 = document.querySelector('#animated-asset-4');
 		
     		 el.addEventListener('markerFound', () => {
 			console.log(this.data);
@@ -55,7 +55,7 @@
 			model.setAttribute('animation-mixer', prevData);
       			//scene.removeEventListener('animation-loop', jumpTrans);
     			});
-		 btn.item(0).addEventListener('click', () => {
+		 /*btn.item(0).addEventListener('click', () => {
 			console.log("TURN5");
 			model.setAttribute('animation-mixer', this.data);
 			//prevData = this.data;
@@ -69,6 +69,7 @@
 			cable.setAttribute('animation-mixer', "clip: Cable_In; loop: once; clampWhenFinished: true");
 			//prevData = this.data;
 		 	});
+			*/
 		forward.addEventListener('click', () =>{
 			console.log("forward");
 			updateState(true);
@@ -89,8 +90,8 @@
 				   }
 				if(state ==2){
 					
-					setTimeout (cable3.setAttribute('visible', true), 2000);
-				   	cable3.setAttribute('animation-mixer', "clip: Cable_In.002; loop: once; clampWhenFinished: true");
+					setTimeout (cable.setAttribute('visible', true), 2000);
+				   	cable.setAttribute('animation-mixer', "clip: Cable_In.003; loop: once; clampWhenFinished: true");
 				   }
 			}
 			else{
@@ -149,7 +150,8 @@
 	  </div>
 
 	</div>
-  
+	    
+  	 <!--
         <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
             <button type="button">Click Me!!!</button>
         </div>
@@ -157,6 +159,8 @@
 	<div style='position: fixed; top: 50px; width:100%; text-align: center; z-index: 1;'>
             <button type="button">Click Me Too!!!</button>
         </div>
+	-->
+	    
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
         <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
         
@@ -167,42 +171,22 @@
 
         <a-marker id="animated-marker" preset='custom' type='pattern' value='6' url='pattern-download.patt' emitevents='true' play-on-scan="clip: Spin; loop: once; clampWhenFinished: true"">
 	<!--<a-marker id="animated-marker" type='hiro' value='6' emitevents='true' play-on-scan="clip: Spin; loop: once; clampWhenFinished: true""> -->																      
-            <a-entity
-		id="animated-asset"
-		src="Roteador_GrayBox.gltf"
-		gltf-model="#animated-asset"      
-                scale="18 18 18">			
-	     </a-entity>
+
 	     <a-entity
-		id="animated-asset-2"
-		src="Roteador_GrayBox_Cable.gltf"
+		id="animated-asset-6"
+		src="Roteador_GrayBox_Indicator1.gltf"
 		gltf-model="#animated-asset-2"
 		visible="false"
 		position="0 0 0"
 		scale="18 18 18">
 	     </a-entity>
-		<a-entity
-		id="animated-asset-3"
-		src="Roteador_GrayBox_Cable2.gltf"
-		gltf-model="#animated-asset-3"
-		visible="false"
-		position="0 0 0"
-		scale="18 18 18">
-	     </a-entity>
-		<a-entity
-		id="animated-asset-4"
-		src="Roteador_GrayBox_Cable3.gltf"
-		gltf-model="#animated-asset-4"
-		visible="false"
-		position="0 0 0"
-		scale="18 18 18">
-	     </a-entity>
+	
         </a-marker>
 	<a-marker id="animated-marker-2" preset='custom' type='pattern' value='6' url='pattern-Accenture-Logo-768x768.patt' emitevents='true' play-on-scan="clip: Spin; loop: once; clampWhenFinished: true"">
 		
 		<a-entity
 		id="animated-asset-5"
-		src="Roteador_GrayBox_Cable3.gltf"
+		src="Roteador_GrayBox_Interaction2.gltf"
 		gltf-model="#animated-asset-5"
 		visible="true"
 		position="0 0 0"
