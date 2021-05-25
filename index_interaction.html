@@ -17,6 +17,8 @@
 	schema: {default: ''},
  	init: function () {
 		const steps = [
+			
+		"Click the arrow when you are ready to start"
 		
 		"Step 1 - Check Status light as indicated"
 		,
@@ -84,11 +86,16 @@
 				state++;
 				document.getElementById("Text").innerHTML = steps[state];
 				if(state ==1){
-					modal.style.display = "block";
-					//setTimeout (cable2.setAttribute('visible', true), 2000);
-				   	//cable2.setAttribute('animation-mixer', "clip: Cable_In.001; loop: once; clampWhenFinished: true");
+					setTimeout (indicator.setAttribute('visible', true), 2000);
+				   	indicator.setAttribute('animation-mixer', "clip: CylinderAction; loop: repeat; clampWhenFinished: true");
 				   }
 				if(state ==2){
+					modal.style.display = "block";
+					setTimeout (indicator.setAttribute('visible', false), 2000);
+					//setTimeout (cable.setAttribute('visible', true), 2000);
+				   	//cable.setAttribute('animation-mixer', "clip: Cable_In.003; loop: once; clampWhenFinished: true");
+				   }
+				if(state ==3){
 					
 					setTimeout (cable.setAttribute('visible', true), 2000);
 				   	cable.setAttribute('animation-mixer', "clip: Cable_In.003; loop: once; clampWhenFinished: true");
