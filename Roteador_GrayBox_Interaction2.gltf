@@ -85,29 +85,29 @@
         {
             "bufferView" : 0,
             "componentType" : 5126,
-            "count" : 70,
+            "count" : 72,
             "max" : [
-                -0.01136369351297617,
-                0.03981181979179382,
-                0.06384380161762238
+                0.06384380161762238,
+                0.04029896482825279,
+                -0.032746702432632446
             ],
             "min" : [
-                -0.04029896482825279,
-                0.03274669498205185,
-                0.056347429752349854
+                0.056347429752349854,
+                0.011363697238266468,
+                -0.03981182724237442
             ],
             "type" : "VEC3"
         },
         {
             "bufferView" : 1,
             "componentType" : 5126,
-            "count" : 70,
+            "count" : 72,
             "type" : "VEC3"
         },
         {
             "bufferView" : 2,
             "componentType" : 5126,
-            "count" : 70,
+            "count" : 72,
             "type" : "VEC2"
         },
         {
@@ -138,38 +138,38 @@
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 840,
+            "byteLength" : 864,
             "byteOffset" : 0
         },
         {
             "buffer" : 0,
-            "byteLength" : 840,
-            "byteOffset" : 840
+            "byteLength" : 864,
+            "byteOffset" : 864
         },
         {
             "buffer" : 0,
-            "byteLength" : 560,
-            "byteOffset" : 1680
+            "byteLength" : 576,
+            "byteOffset" : 1728
         },
         {
             "buffer" : 0,
             "byteLength" : 216,
-            "byteOffset" : 2240
+            "byteOffset" : 2304
         },
         {
             "buffer" : 0,
             "byteLength" : 244,
-            "byteOffset" : 2456
+            "byteOffset" : 2520
         },
         {
             "buffer" : 0,
             "byteLength" : 732,
-            "byteOffset" : 2700
+            "byteOffset" : 2764
         }
     ],
     "buffers" : [
         {
-            "byteLength" : 3432,
+            "byteLength" : 3496,
             "uri" : "Roteador_GrayBox_Interaction2.bin"
         }
     ]
