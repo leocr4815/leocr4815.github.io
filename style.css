@@ -63,6 +63,11 @@
   z-index: 1;
 }
 
+.navbar a:hover b:hover {
+  background-color: #ddd;
+  color: black;
+}
+
 #Background {
 	fill: rgba(230,115,115,1);
 }
@@ -124,12 +129,12 @@
 	overflow: visible;
 	width: 195px;
 	white-space: nowrap;
-	text-align: left;
+	text-align: center;
 	font-family: Helvetica Neue;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 60px;
-	color: rgba(255,255,255,1);
+	color: rgba(0,0,0,1);
 	z-index: 1;
 }
 
