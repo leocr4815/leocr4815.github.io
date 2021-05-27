@@ -64,11 +64,11 @@
 }
 
 .bottomNav c {
-  float: center;
+  margin: 0 auto;
   display: block;
   color: #f2f2f2;
   text-align: center;
-  padding: 34px 46x;
+  padding: 34px 46px;
   text-decoration: none;
   font-size: 20px;
   z-index: 1;
