@@ -40,6 +40,18 @@
   width: 100%;
  z-index: 1;
 }
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  z-index: 1;
+}
+
 #Background {
 	fill: rgba(230,115,115,1);
 }
