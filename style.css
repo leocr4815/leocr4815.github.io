@@ -64,11 +64,11 @@
 }
 
 .bottomNav c {
-  float: left;
+  float: center;
   display: block;
   color: #f2f2f2;
   text-align: center;
-  padding: 34px 200px;
+  padding: 34px 46x;
   text-decoration: none;
   font-size: 20px;
   z-index: 1;
@@ -140,17 +140,15 @@
 }
 */
 #Text {
-	left: 863px;
+	/*left: 863px;
 	top: 972px;
 	position: absolute;
 	overflow: visible;
 	width: 195px;
+	*/
 	white-space: nowrap;
 	text-align: center;
-	font-family: Helvetica Neue;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 60px;
+	font-size: 20px;
 	color: rgba(0,0,0,1);
 	z-index: 1;
 }
