@@ -1,4 +1,4 @@
-.mediaViewInfo {
+/*.mediaViewInfo {
 	--web-view-name: Web 1920 – 1;
 	--web-view-id: Web_1920__1;
 	--web-scale-to-fit: true;
@@ -31,7 +31,7 @@
 	--web-application: true;
 	--web-enable-deep-linking: true;
 }
-
+*/
 .bottomNav {
   background-color: #333;
   overflow: hidden;
@@ -72,16 +72,16 @@
   background-color: #ddd;
   color: black;
 }
-
+/*
 #Background {
 	fill: rgba(230,115,115,1);
 }
 .Background {
 	filter: drop-shadow(0px -5px 6px rgba(0, 0, 0, 0.161));
-	/*position: absolute;
+	position: absolute;
 	overflow: visible;
 	width: 1938px;
-	height: 171px;*/
+	height: 171px;
 	overflow: visible;
   	position: fixed;
  	 bottom: 0;
@@ -127,6 +127,7 @@
 	z-index: 1;
 	
 }
+*/
 #Text {
 	left: 863px;
 	top: 972px;
