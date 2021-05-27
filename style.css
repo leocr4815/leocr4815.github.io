@@ -146,6 +146,7 @@
 	overflow: visible;
 	width: 195px;
 	*/
+	overflow-wrap: break-word;
 	white-space: nowrap;
 	text-align: center;
 	font-size: 20px;
