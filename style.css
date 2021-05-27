@@ -63,7 +63,12 @@
   z-index: 1;
 }
 
-.navbar a:hover b:hover {
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.navbar b:hover {
   background-color: #ddd;
   color: black;
 }
