@@ -36,10 +36,14 @@
 }
 .Background {
 	filter: drop-shadow(0px -5px 6px rgba(0, 0, 0, 0.161));
-	position: absolute;
+	/*position: absolute;
 	overflow: visible;
 	width: 1938px;
-	height: 171px;
+	height: 171px;*/
+	overflow: hidden;
+  	position: fixed;
+ 	 bottom: 0;
+  	width: 100%;
 	left: 0px;
 	top: 927px;
 	z-index: 1;
