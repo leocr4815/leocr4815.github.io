@@ -63,12 +63,12 @@
   z-index: 1;
 }
 
-.navbar a:hover {
+.bottomNav a:hover {
   background-color: #ddd;
   color: black;
 }
 
-.navbar b:hover {
+.bottomNav b:hover {
   background-color: #ddd;
   color: black;
 }
