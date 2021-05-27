@@ -38,6 +38,7 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+ z-index: 1;
 }
 #Background {
 	fill: rgba(230,115,115,1);
