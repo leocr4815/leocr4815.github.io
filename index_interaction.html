@@ -1,63 +1,60 @@
 <!doctype HTML>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    </head>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
-    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="style.css"/>
-    <script type="text/javascript">
-	    
-     
-	
-    	var playOnce = false; 
-	
-	AFRAME.registerComponent('play-on-scan', {
-	schema: {default: ''},
- 	init: function () {
-		const steps = [
-			
-		"Click the NEXT button when you are ready to start"
-		,
-		"Step 1 - Check Status light as indicated"
-		,
-		"Step 2 - Rotate your device"
-		,
-		"Step 3 - Connect cable like indicated"
-		
-		]
-		
-		 // Get the modal
-		 var modal = document.getElementById("myModal");
-		// Get the <span> element that closes the modal
-		 var span = document.getElementsByClassName("close")[0];
-		
-		 var prevData = "clip: Idle; loop: once";
-		 var scene = document.querySelector('a-scene');  
-		 var model = document.querySelector('#animated-asset');
-    		 var el = this.el;
-		 console.log(this.el);
-		
-		 document.getElementById("Text").innerHTML = steps[0];
-		 var state = 0;
-		 //var btn = document.querySelectorAll('button');  
-		 var forward = document.getElementById("Forward");
-		 var backward = document.getElementById("Backward");
-		 var cable = document.querySelector('#animated-asset-5');
-		 var indicator = document.querySelector('#animated-asset-6');
-		 //var cable3 = document.querySelector('#animated-asset-4');
-		
-    		 el.addEventListener('markerFound', () => {
-			console.log(this.data);
-      			//rot.setAttribute('animation-mixer', this.data);
-			//prevData = this.data; 
-    			});
-		  el.addEventListener('markerLost', () => {
-			model.setAttribute('animation-mixer', prevData);
-      			//scene.removeEventListener('animation-loop', jumpTrans);
-    			});
-		 /*btn.item(0).addEventListener('click', () => {
+
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+<script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+<script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="style.css" />
+<script type="text/javascript">
+    var playOnce = false;
+
+    AFRAME.registerComponent('play-on-scan', {
+        schema: {
+            default: ''
+        },
+        init: function() {
+            const steps = [
+
+                "Click the NEXT button when you are ready to start!",
+                "Step 1 - Check Status light as indicated",
+                "Step 2 - Rotate your device",
+                "Step 3 - Connect cable like indicated"
+
+            ]
+
+            // Get the modal
+            var modal = document.getElementById("myModal");
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            var prevData = "clip: Idle; loop: once";
+            var scene = document.querySelector('a-scene');
+            var model = document.querySelector('#animated-asset');
+            var el = this.el;
+            console.log(this.el);
+
+            document.getElementById("Text").innerHTML = steps[0];
+            var state = 0;
+            //var btn = document.querySelectorAll('button');  
+            var forward = document.getElementById("Forward");
+            var backward = document.getElementById("Backward");
+            var cable = document.querySelector('#animated-asset-5');
+            var indicator = document.querySelector('#animated-asset-6');
+            //var cable3 = document.querySelector('#animated-asset-4');
+
+            el.addEventListener('markerFound', () => {
+                console.log(this.data);
+                //rot.setAttribute('animation-mixer', this.data);
+                //prevData = this.data; 
+            });
+            el.addEventListener('markerLost', () => {
+                model.setAttribute('animation-mixer', prevData);
+                //scene.removeEventListener('animation-loop', jumpTrans);
+            });
+            /*btn.item(0).addEventListener('click', () => {
 			console.log("TURN5");
 			model.setAttribute('animation-mixer', this.data);
 			//prevData = this.data;
@@ -72,84 +69,82 @@
 			//prevData = this.data;
 		 	});
 			*/
-		forward.addEventListener('click', () =>{
-			console.log("forward");
-			updateState(true);
-			});
-		backward.addEventListener('click', () =>{
-			console.log("back");
-			updateState(false);
-			});
-		
-		function updateState(flag){
-			if (flag){
-				state++;
-				document.getElementById("Text").innerHTML = steps[state];
-				if(state ==1){
-					setTimeout (indicator.setAttribute('visible', true), 2000);
-				   	indicator.setAttribute('animation-mixer', "clip: CylinderAction; loop: repeat; clampWhenFinished: true");
-				   }
-				if(state ==2){
-					modal.style.display = "block";
-					setTimeout (indicator.setAttribute('visible', false), 2000);
-					//setTimeout (cable.setAttribute('visible', true), 2000);
-				   	//cable.setAttribute('animation-mixer', "clip: Cable_In.003; loop: once; clampWhenFinished: true");
-				   }
-				if(state ==3){
-					
-					setTimeout (cable.setAttribute('visible', true), 2000);
-				   	cable.setAttribute('animation-mixer', "clip: Cable_In.003; loop: once; clampWhenFinished: true");
-				   }
-			}
-			else{
-				modal.style.display = "none";
-				state--;
-				document.getElementById("Text").innerHTML = steps[state];
-			}
-			
-		}
-	
-		// When the user clicks on <span> (x), close the modal
-		span.onclick = function() {
-		  modal.style.display = "none";
-		  updateState(true);
-		}
+            forward.addEventListener('click', () => {
+                console.log("forward");
+                updateState(true);
+            });
+            backward.addEventListener('click', () => {
+                console.log("back");
+                updateState(false);
+            });
 
-		// When the user clicks anywhere outside of the modal, close it
-		//window.onclick = function(event) {
-		//  if (event.target == modal) {
-		//    modal.style.display = "none";
-		//  }
-		//}
-		
-  		}
-	});   
-	    
-    </script>
-	
-    <body style='margin : 0px; overflow:hidden; font-family: Arial, Helvetica, sans-serif;'>
-	    
-	<div class="bottomNav">
-		 
-  		<a id="Backward">Back</a>
-		 <b id="Forward">Next</b>
-		<c id="Text" class="Text">
-			<p>Text 1</p>
-		<c>
-	    </div>
-	    
-	    <!-- The Modal -->
-	<div id="myModal" class="modal">
+            function updateState(flag) {
+                if (flag) {
+                    state++;
+                    document.getElementById("Text").innerHTML = steps[state];
+                    if (state == 1) {
+                        setTimeout(indicator.setAttribute('visible', true), 2000);
+                        indicator.setAttribute('animation-mixer', "clip: CylinderAction; loop: repeat; clampWhenFinished: true");
+                    }
+                    if (state == 2) {
+                        modal.style.display = "block";
+                        setTimeout(indicator.setAttribute('visible', false), 2000);
+                        //setTimeout (cable.setAttribute('visible', true), 2000);
+                        //cable.setAttribute('animation-mixer', "clip: Cable_In.003; loop: once; clampWhenFinished: true");
+                    }
+                    if (state == 3) {
 
-	  <!-- Modal content -->
-	  <div class="modal-content">
-	    <span class="close">&times;</span>
-	    <p>Please Rotate your device and scan the image on the back</p>
-	  </div>
+                        setTimeout(cable.setAttribute('visible', true), 2000);
+                        cable.setAttribute('animation-mixer', "clip: Cable_In.003; loop: once; clampWhenFinished: true");
+                    }
+                } else {
+                    modal.style.display = "none";
+                    state--;
+                    document.getElementById("Text").innerHTML = steps[state];
+                }
 
-	</div>
-	    
-  	 <!--
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+                updateState(true);
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            //window.onclick = function(event) {
+            //  if (event.target == modal) {
+            //    modal.style.display = "none";
+            //  }
+            //}
+
+        }
+    });
+</script>
+
+<body style='margin : 0px; overflow:hidden; font-family: Arial, Helvetica, sans-serif;'>
+
+    <div class="bottomNav">
+
+        <a id="Backward">Back</a>
+        <b id="Forward">Next</b>
+        <c id="Text" class="Text">
+            <p>Text 1</p>
+            <c>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Please Rotate your device and scan the image on the back</p>
+        </div>
+
+    </div>
+
+    <!--
         <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
             <button type="button">Click Me!!!</button>
         </div>
@@ -158,37 +153,31 @@
             <button type="button">Click Me Too!!!</button>
         </div>
 	-->
-	    
-        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-        <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
-        
+
+    <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+    <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+
         <a-assets>
-            
-           <!--<a-asset-item id="animated-asset" src="Roteador_GrayBox.gltf"></a-asset-item> -->
+
+            <!--<a-asset-item id="animated-asset" src="Roteador_GrayBox.gltf"></a-asset-item> -->
         </a-assets>
 
-        <a-marker id="animated-marker" preset='custom' type='pattern' value='6' url='pattern-download.patt' emitevents='true' play-on-scan="clip: Spin; loop: once; clampWhenFinished: true"">
-	<!--<a-marker id="animated-marker" type='hiro' value='6' emitevents='true' play-on-scan="clip: Spin; loop: once; clampWhenFinished: true""> -->																      
+        <a-marker id="animated-marker" preset='custom' type='pattern' value='6' url='pattern-download.patt' emitevents='true' play-on-scan="clip: Spin; loop: once; clampWhenFinished: true" ">
+	<!--<a-marker id="animated-marker " type='hiro' value='6' emitevents='true' play-on-scan="clip: Spin; loop: once; clampWhenFinished: true ""> -->
 
-	     <a-entity
-		id="animated-asset-6"
-		src="Roteador_GrayBox_Interaction1.gltf"
-		gltf-model="#animated-asset-6"
-		visible="false"
-		position="0 0 0"
-		scale="18 18 18">
-	     </a-entity>
-	
+            <a-entity id="animated-asset-6" src="Roteador_GrayBox_Interaction1.gltf" gltf-model="#animated-asset-6" visible="false" position="0 0 0" scale="18 18 18">
+            </a-entity>
+
         </a-marker>
-	<a-marker id="animated-marker-2" preset='custom' type='pattern' value='6' url='pattern-Accenture-Logo-768x768.patt' emitevents='true' play-on-scan="clip: Spin; loop: once; clampWhenFinished: true"">
+        <a-marker id="animated-marker-2" preset='custom' type='pattern' value='6' url='pattern-Accenture-Logo-768x768.patt' emitevents='true' play-on-scan="clip: Spin; loop: once; clampWhenFinished: true" ">
 		
 		<a-entity
-		id="animated-asset-5"
-		src="Roteador_GrayBox_Interaction2.gltf"
-		gltf-model="#animated-asset-5"
-		visible="false"
-		position="0 0 0"
-		scale="18 18 18">
+		id="animated-asset-5 "
+		src="Roteador_GrayBox_Interaction2.gltf "
+		gltf-model="#animated-asset-5 "
+		visible="false "
+		position="0 0 0 "
+		scale="18 18 18 ">
 	     </a-entity>
 	
 	</a-marker>
